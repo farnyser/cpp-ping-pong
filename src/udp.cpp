@@ -6,15 +6,7 @@
 
 using boost::asio::ip::udp;
 
-int help()
-{
-    std::cout << "Usage:" << std::endl;
-    std::cout << "\t" << "ping-pong [ping/pong] [host=127.0.0.1] [message=10000]" << std::endl;
-    
-    return -1;
-}
-
-int ping(const std::string& host, size_t count)
+int ping_udp(const std::string& host, size_t count)
 {
     std::cout << "Ping " << host << " * " << count << " ..." << std::endl;
 
@@ -50,10 +42,10 @@ int ping(const std::string& host, size_t count)
     l.generate(std::cout);
 
     socket.close();
-    return -1;
+    return 0;
 }
 
-int pong(const std::string& host)
+int pong_udp(const std::string& host)
 {
     std::cout << "Pong " << host << " ..." << std::endl;
 
@@ -75,19 +67,5 @@ int pong(const std::string& host)
     }
 
     socket.close();
-    return -1;
-}
-
-int main(int argc, char **argv)
-{
-    if(argc <= 1)
-        return help();
-
-    auto host = argc < 3 ? std::string("127.0.0.1") : std::string(argv[2]);
-    auto count = argc < 4 ? 10000 : atol(argv[3]);
-
-    if(argv[1] == std::string("ping")) 
-        return ping(host, count);
-    
-    return pong(host);
+    return 0;
 }

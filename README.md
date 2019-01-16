@@ -1,3 +1,3 @@
-# C++ UDP Ping Pong
+# C++ UDP/TCP Ping Pong
 
-UDP Latency benchmark
+UDP & TCP Latency benchmark

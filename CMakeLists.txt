@@ -6,5 +6,5 @@ set(CMAKE_CXX_STANDARD 17)
 find_package (Threads)
 find_package(Boost 1.40.0 REQUIRED system)
 
-add_executable(ping_pong main.cpp)
+add_executable(ping_pong src/main.cpp src/udp.cpp src/tcp.cpp)
 target_link_libraries(ping_pong ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
